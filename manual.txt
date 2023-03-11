@@ -1,0 +1,18 @@
+npx create-react-app@latest . - to create new react app in front end.  
+deleted most files - in src, only kep app.js and index.js and deleted the code to import the other files etc...
+
+
+NPM START IN THE ROOT FILE - frontend to start the app in chrome.
+
+Maps - add access token in .env for security
+npm add react-map-gl
+
+create App.css file
+
+npm Install axios  - React --> fetching data from node using Axios 
+axios = Axios is a promise based HTTP client for the browser and Node.js. Axios makes it easy to send asynchronous HTTP requests to REST endpoints and perform CRUD operations. It can be used in plain JavaScript or with a library such as Vue or React.
+
+
+Todo: With ipad --> make a concept map of everything
+- add in ideas with ipad and changes to make
+- add changes that I need

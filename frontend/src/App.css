@@ -1,0 +1,32 @@
+/* styling for the app */
+.card{
+    width: 200px;
+    height: 200px;
+    /* centering the text and getting it in-line */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+/* label is a tag a not a classname --> so dont need .label */
+/* all label tags will have the same styles applied. */
+label{
+    width: max-content;
+    color: tomato;
+    font-size: 14px;
+    font-family: 'Times New Roman', Times, serif;
+    border-bottom: 0.5px solid tomato;
+    margin: 3px 0;
+}
+.descript{
+    font-size: 12px;
+}
+.star{
+    color: gold;
+}
+.username{
+    font-size: 12px;
+}
+.date{
+    font-size: 10px;
+}
