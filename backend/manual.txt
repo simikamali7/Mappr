@@ -1,0 +1,17 @@
+An API (Application Programming Interface) is a set of 
+rules and protocols that allow different software applications to communicate 
+with each other. In the context of a backend, an API typically refers to the interface
+that the server exposes to the client. This interface defines the types of requests that the 
+server can handle and the format of the responses.
+
+api is like a language or menu that a user can order from the backend/kitchen almost in a specific language etc..
+    the api like the menu provided by the server/kitchen which tells the user/client/guest what they can order from the server/kitchen and the format of the results/food they will receive and how to order it in a specific manner the kitchen/server will understand.
+The api is the interface that the server exposes to the client.
+The api defines the type of requests that the server can handle and the format of the responses
+The database is pretty much the fridge that holds the data/ingredients
+
+the server and database make up the backend, which communicate with eachother, and with the front-end through API's (like a menu)
+the server also uses the api to send a response back to the client 
+The front end also sends requests to the backend through the api and uses the responses to display the information to the user  
+    the frontend could be like a waiter that gets orders from the user through how they interact with the with site displayed
+    and then send the information/request to the server/kitchen, and get the information back and listens to the cook how to organize the food presentation/website presentation. which the user/guest will ultimately see.
