@@ -1,59 +1,3 @@
-// import usestate hook and ReactMapGl
-// import { useState } from 'react';
-// import ReactMapGL from 'react-map-gl';
-// import { Marker } from 'react-map-gl';
-// import RoomIcon from '@mui/icons-material/Room';
-// import "mapbox-gl/dist/mapbox-gl.css";
-
-
-// function App() {
-//   const [viewport, setViewport] = useState({
-//     width: "200vw",
-//     height: "200vh",
-//     latitude: 46,
-//     longitude: 17,
-//     zoom: 4
-//   });
-//   return (
-//     <div className="App">
-//       <ReactMapGL
-//         {...viewport}
-//         mapStyle= "mapbox://styles/mapbox/satellite-v9"
-//         onViewPortChange={nextViewport => setViewport(nextViewport)}
-//         mapboxAccessToken={process.env.REACT_APP_MAPBOX}
-//       >
-//       {/* marker inside of ReactMapGL */}
-//         <Marker 
-//           longitude={2.294694} 
-//           latitude={48.858093} 
-//           offsetLeft={-20}
-//           offsetright={-10} 
-//         >
-//           {/* <RoomIcon/> */}
-//           </Marker>  
-//       </ReactMapGL>      
-//     </div>
-//   );
-// }
-
-// import * as React from 'react';
-// import Map from 'react-map-gl';
-// import 'mapbox-gl/dist/mapbox-gl.css';
-// import {render} from 'react-dom';
-
-// function App() {
-//   return (
-//     <Map
-//       initialViewState={{
-//         longitude: -122.4,
-//         latitude: 37.8,
-//         zoom: 14
-//       }}
-//       style={{width: 600, height: 400}}
-//       mapStyle="mapbox://styles/mapbox/streets-v9"
-//     />
-//   );
-// }
 
 import * as React from 'react';
 import Map, {Marker, Popup} from 'react-map-gl';
@@ -63,10 +7,32 @@ import RoomIcon from '@mui/icons-material/Room';
 import StarIcon from '@mui/icons-material/Star';
 import "./App.css"
 import { useState } from 'react';
-
+import axios from 'axios'
+import { useEffect } from 'react';
 
 function App() {
   const [showPopup, setShowPopup] = React.useState(true);
+
+  // empty array for initial array ==> array in useState is empty
+  const[pins, setPins] = useState([])
+
+  // function for getting the pins data from the backend.
+  // using Rest .get method.
+  // use try catch block
+  // call setPins state function to set the pins data to the 
+  
+  useEffect(()=> {
+    const getPins = async ()=> {
+      try{
+        const res = await axios.get("/pins");
+        setPins(res.data);
+      }catch(err){
+        console.log(err)
+      }
+    };
+    // need to call asynch getPins function to get the pin data.
+    getPins()
+  }, []);
 
   return (
     <div className="App">
@@ -83,37 +49,16 @@ function App() {
       mapStyle="mapbox://styles/mapbox/streets-v9"
       mapboxAccessToken={process.env.REACT_APP_MAPBOX}
     >
-      {/* popup card for eiffel tower containing a description*/}
-      {showPopup && (
-        <Popup 
-          longitude={2.294694} 
-          latitude={48.858093}
-          anchor="bottom"
-          onClose={() => setShowPopup(false)}
-        >
-                                            {/* text in the textbook --> b/w Popup component opening and closing tags */}
-          <div className='card'>
-          <label>Location:</label>
-          <h4 className='place'><b>Eiffel Tower</b></h4>
-          <label>Review:</label> 
-          <p className='descript'>An Exquisite Marvel of Architecture.</p>
-          <label>Rating:</label>
-          <div className='ratingStars'>
-            <StarIcon className='star'/>
-            <StarIcon className='star'/>
-            <StarIcon className='star'/>
-            <StarIcon className='star'/>
-            <StarIcon className='star'/>
-          </div>
-          <label>Information: </label>
-          <span className='username'>Created by: <b>Simi </b></span>
-          <span className='date'>- 1 Hour ago</span>
-        </div>
-      </Popup>)}
-      {/* using the room (pin) icon component from material UI  */}
-      <Marker longitude={2.294694} latitude={48.858093}>
-        <RoomIcon style = {{color: 'slateblue'}}/>
-      </Marker>
+      {/* to show the pins */}
+      {pins.map(p=>(
+      <>
+        <Marker longitude={p.long} latitude={p.lat}>
+          <RoomIcon style = {{color: 'slateblue'}}/>
+        </Marker>
+
+
+      {/* DONT NEED --> NOT WORKING */}
+
       {/* the standard pin icon component provided by react-map-gl */}
       {/* <Marker longitude={2.294694} latitude={48.858093} color="red"></Marker> */}
       
@@ -134,6 +79,10 @@ function App() {
           <label>Information</label>
         </div>
       </Popup>)} */}
+
+      {/* DONT NEED --> OLD VERSION -->NOT working */}
+        </>
+      ))};
       </ReactMapGL>
     </div>
   );

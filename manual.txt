@@ -4,6 +4,10 @@ deleted most files - in src, only kep app.js and index.js and deleted the code t
 
 NPM START IN THE ROOT FILE - frontend to start the app in chrome.
 
+STARTING UP THE BACKEND server -> cd backend --> npm test -
+
+loading up front end ui --> cd frontend --> npm start
+
 Maps - add access token in .env for security
 npm add react-map-gl
 
@@ -16,3 +20,11 @@ axios = Axios is a promise based HTTP client for the browser and Node.js. Axios 
 Todo: With ipad --> make a concept map of everything
 - add in ideas with ipad and changes to make
 - add changes that I need
+
+To call the backend server from the frontend:
+-  add "proxy": "http://localhost:8800/api" into the package.json file in frontend.
+
+
+axios --> a popular promise-based HTTP client (library)
+- makes for sending asynch HTTP request to REST endpoints easier and helps to perform CRUD operations
+- makes it easier to retrieve data from an API, add to API and delete data from API   
