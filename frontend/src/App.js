@@ -1,4 +1,3 @@
-
 import * as React from 'react';
 import Map, {Marker, Popup} from 'react-map-gl';
 import ReactMapGL from 'react-map-gl';
@@ -22,7 +21,7 @@ function App() {
   // call setPins state function to set the pins data to the 
   
   useEffect(()=> {
-    const getPins = async ()=> {
+    const getPins = async () => {
       try{
         const res = await axios.get("/pins");
         setPins(res.data);
@@ -56,37 +55,39 @@ function App() {
           <RoomIcon style = {{color: 'slateblue'}}/>
         </Marker>
 
-
-      {/* DONT NEED --> NOT WORKING */}
-
-      {/* the standard pin icon component provided by react-map-gl */}
-      {/* <Marker longitude={2.294694} latitude={48.858093} color="red"></Marker> */}
-      
-      {/* popup card for the Eiffel Tower*/}
-      {/* {showPopup && (<Popup 
-        longitude={48.858093} 
-        latitude={2.294694}
-        closeButton={true}
-        closeOnClick={false}
-        // onClose{() => setShowPopup(false)}
-        anchor="left">
-        <div className='card'>
-          <label>Place</label>
-          <h4 className='place'>Eiffel Tower</h4>
-          <label>Review</label> 
-          <p>An Exquisite Marvel of Architecture.</p>
-          <label>Rating</label>
-          <label>Information</label>
+      {showPopup && (
+        <Popup 
+          longitude={p.long} 
+          latitude={p.lat}
+          anchor="bottom"
+          onClose={() => setShowPopup(false)}
+        >
+                                            {/* text in the textbook --> b/w Popup component opening and closing tags */}
+          <div className='card'>
+          <label>Location:</label>
+          <h4 className='place'><b>Eiffel Tower</b></h4>
+          <label>Review:</label> 
+          <p className='descript'>An Exquisite Marvel of Architecture.</p>
+          <label>Rating:</label>
+          <div className='ratingStars'>
+            <StarIcon className='star'/>
+            <StarIcon className='star'/>
+            <StarIcon className='star'/>
+            <StarIcon className='star'/>
+            <StarIcon className='star'/>
+          </div>
+          <label>Information: </label>
+          <span className='username'>Created by: <b>Simi </b></span>
+          <span className='date'>- 1 Hour ago</span>
         </div>
-      </Popup>)} */}
-
-      {/* DONT NEED --> OLD VERSION -->NOT working */}
+      </Popup>)}
         </>
       ))};
       </ReactMapGL>
     </div>
   );
 }
+
 export default App;
 
 
