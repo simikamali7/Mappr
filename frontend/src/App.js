@@ -6,7 +6,7 @@ import RoomIcon from '@mui/icons-material/Room';
 import StarIcon from '@mui/icons-material/Star';
 import "./App.css"
 import { useState } from 'react';
-import axios from 'axios'
+import axios from "axios"
 import { useEffect } from 'react';
 
 function App() {
@@ -20,7 +20,7 @@ function App() {
   // use try catch block
   // call setPins state function to set the pins data to the 
   
-  useEffect(()=> {
+  useEffect(() => {
     const getPins = async () => {
       try{
         const res = await axios.get("/pins");
