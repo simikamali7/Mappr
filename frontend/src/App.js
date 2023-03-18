@@ -23,7 +23,7 @@ function App() {
   useEffect(() => {
     const getPins = async () => {
       try{
-        const res = await axios.get("/pins");
+        const res = await axios.get("/pins/");
         setPins(res.data);
       }catch(err){
         console.log(err)
