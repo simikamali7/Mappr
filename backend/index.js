@@ -1,3 +1,5 @@
+// main driver file for the backend
+
 // calling express and mongo
 const express = require("express")
 const mongoose = require("mongoose")

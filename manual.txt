@@ -28,3 +28,5 @@ To call the backend server from the frontend:
 axios --> a popular promise-based HTTP client (library)
 - makes for sending asynch HTTP request to REST endpoints easier and helps to perform CRUD operations
 - makes it easier to retrieve data from an API, add to API and delete data from API   
+
+Error: --> AxiosError --> ERR_BAD_REQUEST
