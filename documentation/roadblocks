@@ -1,0 +1,9 @@
+A document on how to improve, ideas, and roadblocks that I faced.
+
+-Map Api --> had to work around the Map Api and figure out to properly use it.
+-Front end wasn't connecting to the Backend to get Data. --> proxy error
+    -had to change proxy 
+
+
+
+    
