@@ -35,6 +35,8 @@ function App() {
     getPins()
   }, []);
 
+  // add pins into array above??
+
   return (
     <div className="App">
       <ReactMapGL
