@@ -24,6 +24,13 @@ mongoose.connect(process.env.Mongo_url, {
     console.log("Mongodb connected ")
 }).catch((err) => console.log(err));
 
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+    next();
+  });
+
 app.use("/api/users", userRoute);
 app.use("/api/pins", pinRoute);
 

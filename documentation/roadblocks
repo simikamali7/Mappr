@@ -7,3 +7,4 @@ A document on how to improve, ideas, and roadblocks that I faced.
 
 -to Fix:   
 - Front end is not rendering pins 
+    add "/api" to the proxy url then figure out the UI problem?

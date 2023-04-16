@@ -4,16 +4,16 @@ import ReactMapGL from 'react-map-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import RoomIcon from '@mui/icons-material/Room';
 import StarIcon from '@mui/icons-material/Star';
-import "./App.css";
+import "./App.css"
 import { useState } from 'react';
-import axios from "axios";
+import axios from "axios"
 import { useEffect } from 'react';
 
 function App() {
   const [showPopup, setShowPopup] = React.useState(true);
 
   // empty array for initial array ==> array in useState is empty
-  const[pins, setPins] = useState([]); 
+  const[pins, setPins] = useState([])
 
   // function for getting the pins data from the backend.
   // using Rest .get method.
@@ -56,6 +56,7 @@ function App() {
       {pins.map(p=>(
       <>
         <Marker longitude={p.long} latitude={p.lat}>
+        <li key={p.username}>{p.title}</li>
           <RoomIcon style = {{color: 'slateblue'}}/>
         </Marker>
 
